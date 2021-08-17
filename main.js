@@ -7,7 +7,7 @@ function handleQuantity(plannet, operator) {
   let quantity = parseInt(quantityText);
 
   if (quantity < 0 || isNaN(quantity)) {
-    quantity = 0;
+    quantity = '';
   }
 
   if (operator == 'plus') {
