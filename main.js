@@ -5,18 +5,22 @@ function handleQuantity(plannet, operator) {
   const quantityInput = document.getElementById(plannet + '-quantity');
   const quantityText = quantityInput.value;
   let quantity = parseInt(quantityText);
-  if (quantity <= 0) {
+
+  if (quantity < 0 || isNaN(quantity)) {
     quantity = 0;
   }
+
   if (operator == 'plus') {
     quantity++;
-  } else {
+  } else if (operator == 'minus') {
     if (quantity <= 0) {
-      alert('Quantity must be positive');
       return;
     }
     quantity--;
+  } else {
+    quantity = quantity;
   }
+
   quantityInput.value = quantity;
   updateBalance(plannet, quantity);
 }
